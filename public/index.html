@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FacturaPro — Autónomos</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="hero"><div class="wrap hero-in"><div><p class="kick">Bloque 11 · M:</p><h1>🧾 FacturaPro</h1><p class="sub">FAC-0001 sin huecos. IVA exacto. Lista para PDF.</p></div><div class="kpis"><div><span>Cobrado</span><strong id="k-cob">0 €</strong></div><div><span>Pendiente</span><strong id="k-pen">0 €</strong></div><div><span>Vencidas</span><strong id="k-ven">0</strong></div><button id="btn-nueva">+ Factura</button></div></div></header>
+<main class="wrap grid">
+  <section class="card"><h2>Clientes</h2><form id="f-cli"><input id="c-nombre" maxlength="100" placeholder="Cliente S.L." required><input id="c-nif" maxlength="20" placeholder="NIF"><button>Añadir</button></form><ul id="clientes" class="list"></ul></section>
+  <section class="card"><h2>Facturas</h2><div class="filters"><select id="f-est"><option value="">Todas</option><option value="borrador">Borrador</option><option value="emitida">Emitida</option><option value="pagada">Pagada</option><option value="vencida">Vencida</option></select><button id="btn-limpiar" class="ghost">Limpiar</button></div><div id="facturas" class="facts"></div></section>
+  <section class="card span2"><h2>Trimestral</h2><canvas id="graf" width="700" height="220"></canvas></section>
+</main>
+<dialog id="modal"><form id="form" method="dialog"><h2 id="m-t">Nueva factura</h2><label>Cliente<select id="m-cli"></select></label><div class="row2"><label>Emisión<input id="m-emi" type="date" required></label><label>Vence<input id="m-ven" type="date" required></label></div><div class="row2"><label>IVA<select id="m-iva"><option>0</option><option>4</option><option>10</option><option selected>21</option></select></label><label>IRPF<select id="m-irpf"><option selected>0</option><option>7</option><option>15</option></select></label></div><label>Líneas (desc | cant | precio €, una por línea)<textarea id="m-lineas" rows="4" placeholder="Diseño web | 1 | 300"></textarea></label><p id="m-tot"></p><p id="m-av"></p><menu><button type="button" id="m-x" class="ghost">Cerrar</button><button type="submit">Guardar</button></menu></form></dialog>
+<div id="print" class="only-print"></div>
+<script src="calculos.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

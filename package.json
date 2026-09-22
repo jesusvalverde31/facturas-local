@@ -1,0 +1,13 @@
+{
+  "name": "fabrica-ia-facturas-local",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Facturación autónomos local sin dependencias",
+  "engines": { "node": ">=24" },
+  "scripts": {
+    "start": "node server.cjs",
+    "open": "node iniciar.cjs",
+    "check": "node --check server.cjs && node --check storage.cjs && node --check numeros.js && node --check iniciar.cjs && node --check public/app.js && node --check public/calculos.js",
+    "test": "node --test --test-isolation=none test/*.test.cjs"
+  }
+}
